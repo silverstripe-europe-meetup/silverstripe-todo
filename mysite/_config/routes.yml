@@ -1,0 +1,7 @@
+---
+Name: myroutes
+After: '#modelascontrollerroutes'
+---
+Director:
+  rules:
+    'api/todos//$Action/$TodoID': 'TodosController'
