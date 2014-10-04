@@ -15,11 +15,9 @@
  * @property SS_Datetime $LastEdited
  */
 class Todo extends DataObject {
+
 	private static $db = [
 		"Title" => "Varchar",
 		"Completed" => "Boolean"
 	];
-
-	private function myMethod() {
-	}
-} 
+}

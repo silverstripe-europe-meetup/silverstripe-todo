@@ -8,6 +8,11 @@ class Page extends SiteTree {
 	);
 
 }
+
+/**
+ * @property Page dataRecord
+ * @method Page data
+ */
 class Page_Controller extends ContentController {
 
 	/**
