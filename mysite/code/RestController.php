@@ -41,6 +41,18 @@ class RestController extends Controller {
 					break;
 				case "POST":
 					$action = "store";
+					$r = fopen('php://input', 'r');
+					$str = fread($r, 9999);
+					$arr = json_decode($str);
+					$title = $arr->Title;
+					
+					//$t = Todo::create($arr);
+					
+					$t = new Todo();
+					$t->Title = $title;
+					
+					$t->write();
+					
 					break;
 				case "PUT":
 					$action = "store";
