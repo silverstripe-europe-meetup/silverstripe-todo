@@ -9,3 +9,6 @@ After:
 # Caution: Indentation through two spaces, not tabs
 SSViewer:
   theme: 'todomvc'
+Todo:
+  db:
+    ClosedAt: SS_DateTime
