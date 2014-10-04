@@ -35,15 +35,14 @@ angular.module('todomvc')
 		});
 
 		$scope.addTodo = function () {
-			var newTodo = $scope.newTodo.trim();
-			if (!newTodo.length) {
-				return;
+			var newTodo = {
+				Title: $scope.newTodo.trim(),
+				Completed: false
 			}
 
-			todos.push({
-				Title: newTodo,
-				Completed: false
-			});
+			todos.push(newTodo);
+
+			todoStorage.addTodo(newTodo);
 
 			$scope.newTodo = '';
 		};

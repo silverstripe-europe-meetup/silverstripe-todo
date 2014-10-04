@@ -18,4 +18,8 @@ class TodosController extends RestController {
 	public function show($id) {
 		return [$id];
 	}
+
+	public function store() {
+		return json_decode(file_get_contents('php://input'), true);
+	}
 } 

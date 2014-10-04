@@ -18,6 +18,9 @@ angular.module('todomvc')
 			},
 			put: function (todos) {
 				localStorage.setItem(STORAGE_ID, JSON.stringify(todos));
+			},
+			addTodo: function(todo) {
+				return $http.post("/api/todos", todo);
 			}
 		};
 	});
