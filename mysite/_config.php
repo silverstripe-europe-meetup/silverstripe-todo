@@ -3,15 +3,10 @@
 global $project;
 $project = 'mysite';
 
-global $databaseConfig;
-$databaseConfig = array(
-	"type" => 'MySQLDatabase',
-	"server" => 'localhost',
-	"username" => 'root',
-	"password" => '',
-	"database" => 'todo',
-	"path" => '',
-);
+global $database;
+$database = '';
+
+require_once('conf/ConfigureFromEnv.php');
 
 // Set the site locale
 i18n::set_locale('en_US');
