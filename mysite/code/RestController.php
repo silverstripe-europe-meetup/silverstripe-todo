@@ -23,7 +23,7 @@ class RestController extends Controller {
 		return true;
 	}
 
-	protected function handleAction(SS_HTTPRequest $request, $action) {
+	protected function handleAction($request, $action) {
 		foreach($request->latestParams() as $k => $v) {
 			if($v || !isset($this->urlParams[$k])) $this->urlParams[$k] = $v;
 		}

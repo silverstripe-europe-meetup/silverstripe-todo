@@ -4,4 +4,6 @@ After: '#modelascontrollerroutes'
 ---
 Director:
   rules:
+    '': 'HomeController'
+    'profile//$Action/$ID/$OtherID': 'ProfileController'
     'api/todos//$Action/$TodoID': 'TodosController'
