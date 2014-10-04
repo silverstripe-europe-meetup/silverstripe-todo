@@ -1,0 +1,30 @@
+$script = <<SCRIPT 
+mkdir -p /vagrant/logs/apache2
+mkdir -p /vagrant/www
+service apache2 restart
+
+mkdir -p /vagrant/logs/mail
+pkill mailcatcher
+mailcatcher --ip=0.0.0.0
+SCRIPT
+
+Vagrant.configure(2) do |config|
+config.vm.box = "test-3-x64"
+
+#above script will be run always
+config.vm.provision :shell, :inline => $script, :run => "always"
+
+config.vm.network :forwarded_port, :guest => 80, :host => 1337, :auto_correct => true
+config.vm.network :forwarded_port, :guest => 1080, :host => 1338, :auto_correct => true
+
+config.vm.provision :shell, :inline => "echo 'hello world' > /vagrant/test.txt"
+config.vm.provision :shell, :inline => "echo doing some stuff", :run => "always"
+config.vm.provision :shell, :path => "install.sh"
+
+
+config.vm.synced_folder ".", "/vagrant",
+  :id => "vagrant-root",
+  :owner => "www-data",
+  :mount_options => ["dmode=777","fmode=777"]
+
+end
